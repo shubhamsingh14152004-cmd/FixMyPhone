@@ -63,11 +63,27 @@ Add the following Environment Variables in Vercel (**Project Settings > Environm
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `ADMIN_EMAIL` | Yes | Admin login email (e.g. `admin@fixmyphone.com`) |
-| `ADMIN_PASSWORD` | Yes | Admin login password (e.g. `Admin@123`) |
-| `JWT_SECRET` | Yes | Secret key used for signing JWT session tokens |
+| `ADMIN_EMAIL` | Yes | Admin login email |
+| `ADMIN_PASSWORD` | Yes | Secure admin password |
+| `JWT_SECRET` | Yes | Single secret key used for signing JWT session tokens |
 | `NODE_ENV` | Yes | Set to `production` |
 | `ALLOWED_ORIGINS` | No | Comma-separated CORS origins (defaults to allowing same-origin) |
+
+#### Environment Configuration for `JWT_SECRET`:
+- **Production**: `JWT_SECRET` = Generate privately in Vercel UI or CLI (see below)
+- **Preview**: `JWT_SECRET` = Generate a separate secure value (or check "Apply to Preview" in Vercel)
+- **Development**: `JWT_SECRET` = Defined in local `.env` file (never committed)
+
+#### How to Generate a Secure `JWT_SECRET` Locally:
+Run this Node.js command in your terminal to generate a strong 256-bit random string:
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+Or using OpenSSL:
+```bash
+openssl rand -hex 32
+```
+Copy the generated string and paste it into Vercel Project Settings for `JWT_SECRET`. Do **NOT** commit this value to Git.
 
 ### 4. How Frontend/Backend Routing Works
 - Requests to `/api/*` are routed to the Express serverless function (`api/index.js`).
