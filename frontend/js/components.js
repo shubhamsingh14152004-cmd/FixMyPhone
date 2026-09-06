@@ -12,9 +12,9 @@ function headerHtml(active){
         ${links.map(l=>`<a href="${l[0]}" class="${active===l[0]?'active':''}">${l[1]}</a>`).join('')}
       </nav>
       <div class="nav-cta">
-        <a href="https://wa.me/${waClean}" target="_blank" rel="noopener noreferrer" class="btn-icon-wa" title="WhatsApp Support">💬 WhatsApp</a>
-        <a href="tel:${phone}" class="btn-icon-call" title="Call Store">📞 Call</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Contact Us</a>
+        <a href="https://wa.me/${waClean}" target="_blank" rel="noopener noreferrer" class="btn-icon-wa" title="WhatsApp Support">💬 <span>WhatsApp</span></a>
+        <a href="tel:${phone}" class="btn-icon-call" title="Call Store">📞 <span>Call</span></a>
+        <a href="#contact" class="btn btn-primary btn-sm header-contact-btn">Contact Us</a>
         <button class="hamburger" onclick="toggleDrawer(true)"><span></span><span></span><span></span></button>
       </div>
     </div>
