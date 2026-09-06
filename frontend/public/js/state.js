@@ -10,6 +10,9 @@ function toast(msg){
 window.addEventListener('hashchange', function(){
   if (typeof render === 'function') render();
 });
+window.addEventListener('popstate', function(){
+  if (typeof render === 'function') render();
+});
 function nav(hash){ location.hash = hash; window.scrollTo({top:0,behavior:'auto'}); }
 
 /* ---------------- calculator state ---------------- */

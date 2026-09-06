@@ -12,7 +12,7 @@ const adminState = {
 };
 
 function adminView(hash) {
-  if (!ADMIN_SESSION) return loginRedirectNotice();
+  if (!ADMIN_SESSION) return loginView();
   let sub = (hash.split('/')[1] || 'contact').toLowerCase();
   
   // Normalise legacy or unrecognized hashes to 'contact'

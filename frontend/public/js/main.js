@@ -1,6 +1,28 @@
 /* ================= MASTER RENDER ================= */
+function getActiveRoute() {
+  let hash = location.hash || '';
+  if (hash.startsWith('#/')) {
+    hash = '#' + hash.slice(2);
+  }
+  if (!hash) {
+    const path = location.pathname.toLowerCase().replace(/\/$/, '');
+    if (path === '/admin' || path.startsWith('/admin/')) {
+      hash = '#admin' + path.slice(6);
+    } else if (path === '/login') {
+      hash = '#login';
+    } else if (path === '/book') {
+      hash = '#book';
+    } else if (path === '/track') {
+      hash = '#track';
+    } else if (path === '/dashboard') {
+      hash = '#dashboard';
+    }
+  }
+  return hash || '#home';
+}
+
 function render(){
-  const hash = location.hash || '#home';
+  const hash = getActiveRoute();
   let html='';
   let showHeader=true, showFooter=true;
 
@@ -16,15 +38,16 @@ function render(){
     html = dashboardView();
   } else if(hash==='#login'){
     html = loginView();
-  } else if(hash==='#services' || hash==='#brands' || hash==='#about' || hash==='#contact' || hash==='#faq' || hash==='#home' || hash===''){
-    html = homeView();
   } else {
     html = homeView();
   }
 
   const app=document.getElementById('app');
-  app.innerHTML = (showHeader?headerHtml(navActiveKey(hash)):'') + html + (showFooter?footerHtml():'');
-  document.getElementById('mobile-drawer').style.display='none';
+  if (app) {
+    app.innerHTML = (showHeader?headerHtml(navActiveKey(hash)):'') + html + (showFooter?footerHtml():'');
+    const drawer = document.getElementById('mobile-drawer');
+    if (drawer) drawer.style.display='none';
+  }
 
   if(['#services','#brands','#about','#contact','#faq'].includes(hash)){
     setTimeout(()=>{ const el=document.getElementById(hash.slice(1)); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); },30);
