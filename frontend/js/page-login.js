@@ -3,7 +3,7 @@ function loginView(){
   return `
   <section class="page-hero"><div class="wrap"><div class="breadcrumb">Home / Login</div><h1>Sign in</h1><p>Choose how you'd like to continue.</p></div></section>
   <section class="container-section"><div class="wrap" style="max-width:820px">
-    <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="login-grid">
       <div class="card" style="padding:26px">
         <h3 style="margin:0 0 8px">Customer</h3>
         <p class="small-note" style="margin:0 0 18px">View your bookings, status and invoices.</p>

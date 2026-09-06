@@ -328,7 +328,7 @@ function contactSection(){
       </div>
 
       <!-- Quick Contact Cards -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:18px;margin-bottom:30px">
+      <div class="contact-cards-grid">
         <a href="tel:${phone}" class="card" style="padding:22px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:transform .15s,box-shadow .15s">
           <div style="width:48px;height:48px;border-radius:14px;background:#eff6ff;color:#2F6FEF;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">📞</div>
           <div>
@@ -359,7 +359,7 @@ function contactSection(){
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px" class="grid2">
+      <div class="contact-grid">
         <!-- Store Locations List -->
         <div>
           <h3 style="margin:0 0 16px;font-size:20px">📍 Our Store &amp; Service Locations (${addrs.length})</h3>
@@ -370,7 +370,7 @@ function contactSection(){
               const aWaClean = cleanWa(aWa);
               const fullAddr = a.fullAddress || `${a.street || ''}, ${a.area || ''}, ${a.city || ''} ${a.pincode || ''}`.replace(/^, | ,/g,'');
               return `
-              <div class="card" style="padding:22px;border:1.5px solid ${a.isPrimary?'var(--blue)':'var(--gray-100)'};position:relative">
+              <div class="card location-card" style="padding:22px;border:1.5px solid ${a.isPrimary?'var(--blue)':'var(--gray-100)'};position:relative">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">
                   <h4 style="margin:0;font-size:17px;color:var(--navy)">${escapeHtml(a.title || 'Service Centre')}</h4>
                   ${a.isPrimary?'<span class="pill badge-blue" style="font-size:11.5px">⭐ Primary Location</span>':''}
@@ -393,7 +393,7 @@ function contactSection(){
         </div>
 
         <!-- Contact Form -->
-        <div class="card" style="padding:26px;height:fit-content">
+        <div class="card contact-form-card" style="padding:26px;height:fit-content">
           <h3 style="margin:0 0 14px;font-size:19px">Send Us a Direct Message</h3>
           <p class="small-note" style="margin-bottom:18px">Have a specific repair question or require bulk enterprise device service? Write to us.</p>
           <form onsubmit="submitContact(event)">
@@ -412,19 +412,19 @@ function submitContact(e){ e.preventDefault(); e.target.reset(); toast('Message 
 function aboutSection(){
   return `
   <section id="about" class="container-section" style="background:var(--gray-50)">
-    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="grid2">
+    <div class="wrap about-grid">
       <div>
         <div class="section-head" style="margin-bottom:20px"><h2>About FixMyPhone</h2></div>
         <p style="color:var(--gray-500);line-height:1.7;font-size:15px;margin-bottom:14px">For over eight years, FixMyPhone has repaired everyday smartphones for everyday people — from cracked screens before an exam to a battery that won't survive the day.</p>
         <p style="color:var(--gray-500);line-height:1.7;font-size:15px;margin-bottom:22px">Every technician on our team is trained on the brands they work with, every part meets genuine-equivalent quality, and every price is clear with no surprise fees.</p>
-        <div class="why-grid" style="grid-template-columns:1fr 1fr">
+        <div class="about-why-grid">
           <div class="why-item"><div class="why-ic">&#128119;</div><div><h4 style="margin:0;font-size:14px">Expert Technicians</h4></div></div>
           <div class="why-item"><div class="why-ic">&#9989;</div><div><h4 style="margin:0;font-size:14px">Genuine Parts</h4></div></div>
           <div class="why-item"><div class="why-ic">&#128176;</div><div><h4 style="margin:0;font-size:14px">Transparent Pricing</h4></div></div>
           <div class="why-item"><div class="why-ic">&#9889;</div><div><h4 style="margin:0;font-size:14px">Fast Service</h4></div></div>
         </div>
       </div>
-      <div style="background:var(--navy);border-radius:24px;height:340px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Poppins;flex-direction:column;gap:10px">
+      <div class="about-hero-card">
         <div style="font-size:40px">&#128736;&#65039;</div>
         <div>8+ Years Repairing Phones</div>
       </div>

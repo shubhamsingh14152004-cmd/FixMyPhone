@@ -136,7 +136,7 @@ function bookingStepAppointment(){
   const a=bookingState.appointment;
   return `
   <h3 style="margin:0 0 18px">Appointment</h3>
-  <div class="opt-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+  <div class="booking-opt-grid">
     <button class="opt-btn ${a.type==='store'?'sel':''}" onclick="bookingState.appointment.type='store';render();">&#127970; Store Visit</button>
     <button class="opt-btn ${a.type==='pickup'?'sel':''}" onclick="bookingState.appointment.type='pickup';render();">&#128666; Pickup &amp; Delivery</button>
   </div>

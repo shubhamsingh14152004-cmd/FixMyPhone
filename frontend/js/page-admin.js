@@ -142,7 +142,7 @@ function adminContactSection() {
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
+    <div class="admin-card-grid">
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:16px">
         <div style="font-size:11.5px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">📞 Direct Call Support</div>
         <div style="font-size:19px;font-weight:700;font-family:Poppins;color:#fff">${escapeHtml(phone)}</div>
@@ -164,7 +164,7 @@ function adminContactSection() {
   </div>
 
   <!-- Form & Live Preview Grid -->
-  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start" class="grid2">
+  <div class="admin-split-grid">
     <!-- Left: Edit Phone & WhatsApp Form -->
     <div class="admin-panel">
       <div class="panel-title" style="display:flex;align-items:center;gap:8px">
