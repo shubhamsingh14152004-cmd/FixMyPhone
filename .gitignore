@@ -6,4 +6,7 @@ node_modules/
 dist/
 frontend/dist/
 *.log
+scratch/
+awesome-design-md/
+
 
